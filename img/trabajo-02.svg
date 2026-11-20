@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img">
+  <title>Gráfico de ejemplo: fade</title>
+  <rect width="800" height="1000" fill="#F3EEE6"/>
+  <rect width="22" height="1000" fill="#8E1B24"/>
+  <clipPath id="disco"><circle cx="420" cy="480" r="250"/></clipPath>
+  <g clip-path="url(#disco)">
+    <rect x="140" y="230" width="560" height="500" fill="#110E0C"/>
+    <g fill="#F3EEE6">
+      <rect x="150" y="280" width="540" height="36"/>
+      <rect x="150" y="340" width="540" height="28"/>
+      <rect x="150" y="392" width="540" height="20"/>
+      <rect x="150" y="436" width="540" height="14"/>
+      <rect x="150" y="472" width="540" height="10"/>
+      <rect x="150" y="502" width="540" height="7"/>
+      <rect x="150" y="526" width="540" height="5"/>
+      <rect x="150" y="546" width="540" height="3"/>
+    </g>
+  </g>
+  <path fill="#E4B54A" d="M650 150l8 26 26 8-26 8-8 26-8-26-26-8 26-8z"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img">
+  <title>Gráfico de ejemplo: barba</title>
+  <rect width="800" height="1000" fill="#F3EEE6"/>
+  <rect width="22" height="1000" fill="#8E1B24"/>
+  <circle cx="400" cy="390" r="180" fill="#110E0C"/>
+  <path fill="#110E0C" d="M230 470c20 150 80 250 170 270 90-20 150-120 170-270-40 40-90 70-170 70s-130-30-170-70z"/>
+  <path fill="#F3EEE6" d="M310 620c24 50 50 78 90 84 40-6 66-34 90-84-28 16-58 24-90 24s-62-8-90-24z"/>
+  <path fill="#E4B54A" d="M650 150l8 26 26 8-26 8-8 26-8-26-26-8 26-8z"/>
+</svg>

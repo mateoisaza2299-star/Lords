@@ -1,0 +1,129 @@
+@font-face {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../fonts/syne-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url("../fonts/outfit-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Syne Fallback";
+  src: local("Arial Black"), local("Arial Bold"), local("Liberation Sans");
+  size-adjust: 94%;
+  ascent-override: 92%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Outfit Fallback";
+  src: local("Segoe UI"), local("Liberation Sans"), local("Arial");
+  size-adjust: 105%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+:root {
+  --tinta: #110e0c;
+  --tinta-2: #1c1815;
+  --papel: #f3eee6;
+  --papel-2: #fffcf8;
+  --crema: #f6f1e8;
+  --blanco: #fff8f4;
+  --rojo: #b4232c;
+  --rojo-hover: #8e1b24;
+  --rojo-activo: #6e1219;
+  --rojo-banda: #8e1b24;
+  --oro: #e4b54a;
+  --suave-oscuro: #c9c1b6;
+  --suave-claro: #5c564c;
+  --alerta-claro: #7a1520;
+  --alerta-oscuro: #ffd0cb;
+
+  --color-fondo: var(--tinta);
+  --color-superficie: var(--tinta-2);
+  --color-texto: var(--crema);
+  --color-texto-suave: var(--suave-oscuro);
+  --color-acento: var(--rojo);
+  --color-acento-2: var(--oro);
+  --color-borde: #3a332c;
+  --color-hover: var(--rojo-hover);
+  --color-activo: var(--rojo-activo);
+  --color-alerta: var(--alerta-oscuro);
+  --color-foco: var(--oro);
+  --color-enlace: var(--oro);
+  --color-texto-sobre-acento: var(--blanco);
+  --color-skeleton: #2a241f;
+  --color-skeleton-brillo: #3d352d;
+  --color-velo: rgba(17, 14, 12, 0.72);
+  --color-marca-agua: rgba(246, 241, 232, 0.045);
+
+  --fuente-display: "Syne", "Syne Fallback", "Arial Black", sans-serif;
+  --fuente-cuerpo: "Outfit", "Outfit Fallback", "Segoe UI", sans-serif;
+
+  --radio-s: 12px;
+  --radio-m: 20px;
+  --radio-l: 32px;
+  --radio-pill: 999px;
+  --grosor: 1.5px;
+
+  --espacio-seccion: clamp(4.25rem, 8vw, 7.25rem);
+  --ancho: 1080px;
+  --lado: clamp(1.15rem, 4vw, 1.75rem);
+  --header: 4.25rem;
+
+  --duracion-rapida: 160ms;
+  --duracion: 320ms;
+  --duracion-lenta: 640ms;
+  --curva: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --compensa: 0px;
+  color-scheme: dark;
+}
+
+[data-tema="claro"] {
+  --color-fondo: var(--papel);
+  --color-superficie: var(--papel-2);
+  --color-texto: #16130f;
+  --color-texto-suave: var(--suave-claro);
+  --color-acento: var(--rojo);
+  --color-acento-2: var(--rojo-hover);
+  --color-borde: #ddd4c8;
+  --color-hover: var(--rojo-hover);
+  --color-activo: var(--rojo-activo);
+  --color-alerta: var(--alerta-claro);
+  --color-foco: var(--rojo-hover);
+  --color-enlace: var(--rojo-hover);
+  --color-skeleton: #e4dcd0;
+  --color-skeleton-brillo: #f7f3ed;
+  color-scheme: light;
+}
+
+[data-tema="rojo"] {
+  --color-fondo: var(--rojo-banda);
+  --color-superficie: var(--papel-2);
+  --color-texto: var(--blanco);
+  --color-texto-suave: #f6d6d2;
+  --color-acento: var(--papel-2);
+  --color-acento-2: var(--oro);
+  --color-borde: rgba(255, 248, 244, 0.38);
+  --color-hover: var(--papel);
+  --color-activo: var(--crema);
+  --color-alerta: var(--blanco);
+  --color-foco: var(--papel);
+  --color-enlace: var(--blanco);
+  --color-skeleton: #a32a34;
+  --color-skeleton-brillo: #c44750;
+  color-scheme: dark;
+}

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img">
+  <title>Gráfico de ejemplo: detalle de bigote</title>
+  <rect width="800" height="1000" fill="#F3EEE6"/>
+  <rect width="22" height="1000" fill="#8E1B24"/>
+  <circle cx="300" cy="430" r="78" fill="none" stroke="#110E0C" stroke-width="18"/>
+  <circle cx="300" cy="430" r="18" fill="#E4B54A"/>
+  <path fill="#110E0C" d="M250 640c40-70 90-90 150-40 28 24 52 28 90 16 70-22 120-8 160 30-48 36-110 28-170-8-28-16-48-16-78 4-55 36-110 40-152-2z"/>
+  <path fill="#E4B54A" d="M650 150l8 26 26 8-26 8-8 26-8-26-26-8 26-8z"/>
+</svg>

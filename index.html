@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Lords · Corte con hora exacta</title>
+  <meta name="description" content="Reserva tu corte en Lords: hora exacta, precios a la vista y la silla lista. Elige servicio, barbero y día.">
+  <meta property="og:title" content="Lords · Corte con hora exacta">
+  <meta property="og:description" content="Reserva tu corte en Lords: hora exacta, precios a la vista y la silla lista.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:image" content="img/logo.png">
+  <meta name="theme-color" content="#110e0c">
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/logo.png">
+  <link rel="preload" href="fonts/syne-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>
+    document.documentElement.classList.add("js");
+    try {
+      if (sessionStorage.getItem("lords-visto") === "1") document.documentElement.classList.add("loader-listo");
+    } catch (error) { void error; }
+  </script>
+</head>
+<body>
+  <a class="saltar" href="#contenido" data-fondo>Saltar al contenido</a>
+  <div class="barra-scroll" aria-hidden="true"></div>
+  <div class="loader" aria-hidden="true"><p class="loader-marca">Lords</p></div>
+
+  <p class="aviso" data-tema="rojo" data-fondo>¿Ya tienes silla? <a data-wa data-texto="Hola Lords, ya tengo una reserva y quiero confirmarla">Escríbenos y te confirmamos.</a></p>
+
+  <header class="cabecera" data-tema="oscuro" data-fondo>
+    <div class="contenedor cabecera-inner">
+      <a class="marca" href="#inicio">
+        <img src="img/logo.png" alt="" width="248" height="248">
+        <span class="marca-nombre" translate="no">LORDS</span>
+      </a>
+      <nav id="menu" class="nav-principal" aria-label="Principal">
+        <a href="#servicios">Servicios</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#galeria">Galería</a>
+        <a href="#ubicacion">Visítanos</a>
+        <a href="#preguntas">Preguntas</a>
+      </nav>
+      <div class="cabecera-acciones">
+        <a class="btn btn-rojo" data-magnetico data-reservar data-wa data-texto="Hola Lords, quiero reservar una silla" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20una%20silla">Reservar</a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú">Menú</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" data-fondo>
+    <section class="hero" id="inicio" data-tema="oscuro">
+      <img class="marca-agua" src="img/marca.svg" alt="" aria-hidden="true" width="900" height="180">
+      <div class="contenedor hero-grid">
+        <div>
+          <p class="prueba">
+            <span>Hora exacta</span>
+            <span>Una silla</span>
+            <span>Sin sala de espera</span>
+          </p>
+          <h1>Hoy sales <em>listo</em> para lo que sigue.</h1>
+          <p class="lead">Reserva la silla, llega a tu hora y sal con el corte hecho. Sin fila y sin adivinar el precio.</p>
+          <div class="hero-acciones">
+            <a class="btn btn-rojo" data-magnetico data-reservar data-wa data-texto="Hola Lords, quiero reservar una silla" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20una%20silla">Reservar ahora</a>
+            <a class="btn btn-linea" href="#servicios">Ver servicios</a>
+          </div>
+        </div>
+        <div>
+          <div class="sello" data-parallax>
+            <svg class="chispa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0l1.6 8.4L22 12l-8.4 1.6L12 24l-1.6-10.4L2 12l8.4-1.6z"/></svg>
+            <div class="marco marco-sello">
+              <img src="img/logo.png" alt="Logo de Lords: caballero con tupé, bigote y arete" width="248" height="248" fetchpriority="high">
+            </div>
+          </div>
+          <div class="boleta" data-tema="claro">
+            <p class="sobre">Tu silla</p>
+            <strong>Tres pasos y listo</strong>
+            <ol>
+              <li><span class="n">1</span><span>Elige el servicio</span></li>
+              <li><span class="n">2</span><span>Elige quién te corta</span></li>
+              <li><span class="n">3</span><span>Confirma por WhatsApp</span></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="franja" id="confianza" data-tema="claro" aria-labelledby="confianza-titulo">
+      <div class="contenedor">
+        <h2 class="sr" id="confianza-titulo">En corto</h2>
+        <ul class="cifras">
+          <li><strong data-contador data-hasta="45" data-sufijo=" min" data-confianza="0">45 min</strong><span data-confianza-etiqueta>Duración de un corte</span></li>
+          <li><strong data-contador data-hasta="6" data-sufijo=" días" data-confianza="1">6 días</strong><span data-confianza-etiqueta>Agenda de la semana</span></li>
+          <li><strong data-contador data-hasta="1" data-sufijo=" silla" data-confianza="2">1 silla</strong><span data-confianza-etiqueta>Por cada reserva</span></li>
+        </ul>
+        <p class="nota-ejemplo">Cifras de ejemplo. Cámbialas en la configuración.</p>
+      </div>
+    </section>
+
+    <section class="bloque" id="reserva" data-tema="claro">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <svg class="bigote" viewBox="0 0 160 40" aria-hidden="true"><path fill="currentColor" d="M80 22c-4 0-8-1-14-6-7-6-16-8-24-3-5 3-7 7-5 10 2 3 7 5 12 3 7-2 12 0 18 6 4 4 9 6 13 6s9-2 13-6c6-6 11-8 18-6 5 2 10 0 12-3 2-3 0-7-5-10-8-5-17-3-24 3-6 5-10 6-14 6z"/></svg>
+          <h2>Reserva a tu manera</h2>
+          <p class="lead">Entra por el servicio o por la persona. Las dos llegan al mismo lugar.</p>
+        </div>
+        <div class="vias">
+          <div class="panel">
+            <h3>Por servicio</h3>
+            <div class="entradas">
+              <article class="entrada">
+                <h3 data-s="corte" data-c="nombre">Corte</h3>
+                <p><span data-s="corte" data-c="duracion">45 min</span> · <span data-s="corte" data-c="precio">$40.000</span></p>
+                <a class="enlace-reserva" data-reservar data-servicio="corte" data-wa data-texto="Hola Lords, quiero reservar un corte" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20un%20corte">Reservar</a>
+              </article>
+              <article class="entrada">
+                <h3 data-s="barba" data-c="nombre">Barba</h3>
+                <p><span data-s="barba" data-c="duracion">30 min</span> · <span data-s="barba" data-c="precio">$28.000</span></p>
+                <a class="enlace-reserva" data-reservar data-servicio="barba" data-wa data-texto="Hola Lords, quiero reservar barba" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20barba">Reservar</a>
+              </article>
+              <article class="entrada">
+                <h3 data-s="combo" data-c="nombre">Corte y barba</h3>
+                <p><span data-s="combo" data-c="duracion">75 min</span> · <span data-s="combo" data-c="precio">$62.000</span></p>
+                <a class="enlace-reserva" data-reservar data-servicio="combo" data-wa data-texto="Hola Lords, quiero reservar corte y barba" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20corte%20y%20barba">Reservar</a>
+              </article>
+              <article class="entrada">
+                <h3 data-s="nino" data-c="nombre">Corte niño</h3>
+                <p><span data-s="nino" data-c="duracion">30 min</span> · <span data-s="nino" data-c="precio">$30.000</span></p>
+                <a class="enlace-reserva" data-reservar data-servicio="nino" data-wa data-texto="Hola Lords, quiero reservar un corte niño" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20un%20corte%20ni%C3%B1o">Reservar</a>
+              </article>
+              <article class="entrada">
+                <h3 data-s="cejas" data-c="nombre">Cejas</h3>
+                <p><span data-s="cejas" data-c="duracion">15 min</span> · <span data-s="cejas" data-c="precio">$18.000</span></p>
+                <a class="enlace-reserva" data-reservar data-servicio="cejas" data-wa data-texto="Hola Lords, quiero reservar cejas" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20cejas">Reservar</a>
+              </article>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>Por barbero</h3>
+            <div class="personas">
+              <a class="persona-mini" data-reservar data-barbero="ejemplo-a" data-wa data-texto="Hola Lords, quiero reservar con el barbero ejemplo A" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar">
+                <span class="anillo" data-b="ejemplo-a" data-c="iniciales" aria-hidden="true">EA</span>
+                <span data-b="ejemplo-a" data-c="nombre">Ejemplo A</span>
+              </a>
+              <a class="persona-mini" data-reservar data-barbero="ejemplo-b" data-wa data-texto="Hola Lords, quiero reservar con el barbero ejemplo B" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar">
+                <span class="anillo" data-b="ejemplo-b" data-c="iniciales" aria-hidden="true">EB</span>
+                <span data-b="ejemplo-b" data-c="nombre">Ejemplo B</span>
+              </a>
+              <a class="persona-mini" data-reservar data-barbero="ejemplo-c" data-wa data-texto="Hola Lords, quiero reservar con el barbero ejemplo C" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar">
+                <span class="anillo" data-b="ejemplo-c" data-c="iniciales" aria-hidden="true">EC</span>
+                <span data-b="ejemplo-c" data-c="nombre">Ejemplo C</span>
+              </a>
+              <a class="persona-mini cualquiera" data-reservar data-barbero="cualquiera" data-wa data-texto="Hola Lords, quiero reservar con cualquier barbero" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar">
+                <span class="anillo" aria-hidden="true">+</span>
+                <span>Cualquiera</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque" id="servicios" data-tema="oscuro">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <p class="sobre">La carta</p>
+          <h2>Precios claros, antes de sentarte.</h2>
+          <p class="lead">Desde <span data-desde>$18.000</span>. Lo que ves aquí es lo que pagas.</p>
+          <p class="nota-ejemplo">Precios de ejemplo.</p>
+        </div>
+        <ul class="carta">
+          <li>
+            <span class="indice" data-s="corte" data-c="indice" aria-hidden="true">01</span>
+            <h3 data-s="corte" data-c="nombre">Corte</h3>
+            <p class="desc" data-s="corte" data-c="descripcion">Forma, contorno y un acabado que mañana sigue viéndose bien.</p>
+            <div class="pie-item">
+              <p><span data-s="corte" data-c="duracion">45 min</span> · <span class="precio" data-s="corte" data-c="precio">$40.000</span></p>
+              <a class="enlace-reserva" data-reservar data-servicio="corte" data-wa data-texto="Hola Lords, quiero reservar un corte" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20un%20corte">Reservar</a>
+            </div>
+          </li>
+          <li>
+            <span class="indice" data-s="barba" data-c="indice" aria-hidden="true">02</span>
+            <h3 data-s="barba" data-c="nombre">Barba</h3>
+            <p class="desc" data-s="barba" data-c="descripcion">Toalla caliente, navaja y el perfil en su sitio.</p>
+            <div class="pie-item">
+              <p><span data-s="barba" data-c="duracion">30 min</span> · <span class="precio" data-s="barba" data-c="precio">$28.000</span></p>
+              <a class="enlace-reserva" data-reservar data-servicio="barba" data-wa data-texto="Hola Lords, quiero reservar barba" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20barba">Reservar</a>
+            </div>
+          </li>
+          <li>
+            <span class="indice" data-s="combo" data-c="indice" aria-hidden="true">03</span>
+            <h3 data-s="combo" data-c="nombre">Corte y barba</h3>
+            <p class="desc" data-s="combo" data-c="descripcion">Todo en una sola cita. Sales de una vez.</p>
+            <div class="pie-item">
+              <p><span data-s="combo" data-c="duracion">75 min</span> · <span class="precio" data-s="combo" data-c="precio">$62.000</span></p>
+              <a class="enlace-reserva" data-reservar data-servicio="combo" data-wa data-texto="Hola Lords, quiero reservar corte y barba" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20corte%20y%20barba">Reservar</a>
+            </div>
+          </li>
+          <li>
+            <span class="indice" data-s="nino" data-c="indice" aria-hidden="true">04</span>
+            <h3 data-s="nino" data-c="nombre">Corte niño</h3>
+            <p class="desc" data-s="nino" data-c="descripcion">Para menores de 12. Sin afán y con paciencia.</p>
+            <div class="pie-item">
+              <p><span data-s="nino" data-c="duracion">30 min</span> · <span class="precio" data-s="nino" data-c="precio">$30.000</span></p>
+              <a class="enlace-reserva" data-reservar data-servicio="nino" data-wa data-texto="Hola Lords, quiero reservar un corte niño" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20un%20corte%20ni%C3%B1o">Reservar</a>
+            </div>
+          </li>
+          <li>
+            <span class="indice" data-s="cejas" data-c="indice" aria-hidden="true">05</span>
+            <h3 data-s="cejas" data-c="nombre">Cejas</h3>
+            <p class="desc" data-s="cejas" data-c="descripcion">Una limpieza corta para enmarcar la cara.</p>
+            <div class="pie-item">
+              <p><span data-s="cejas" data-c="duracion">15 min</span> · <span class="precio" data-s="cejas" data-c="precio">$18.000</span></p>
+              <a class="enlace-reserva" data-reservar data-servicio="cejas" data-wa data-texto="Hola Lords, quiero reservar cejas" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20cejas">Reservar</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="bloque" id="equipo" data-tema="claro">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <svg class="bigote" viewBox="0 0 160 40" aria-hidden="true"><path fill="currentColor" d="M80 22c-4 0-8-1-14-6-7-6-16-8-24-3-5 3-7 7-5 10 2 3 7 5 12 3 7-2 12 0 18 6 4 4 9 6 13 6s9-2 13-6c6-6 11-8 18-6 5 2 10 0 12-3 2-3 0-7-5-10-8-5-17-3-24 3-6 5-10 6-14 6z"/></svg>
+          <h2>Con quién te sientas</h2>
+          <p class="lead">Elige un barbero o deja la silla en cualquiera.</p>
+          <p class="nota-ejemplo">Nombres de ejemplo. Cámbialos en la configuración.</p>
+        </div>
+        <div class="equipo-lista">
+          <article class="persona" data-b-card="ejemplo-a">
+            <div class="avatar" aria-hidden="true"><span class="iniciales" data-b="ejemplo-a" data-c="iniciales">EA</span></div>
+            <p class="etiqueta"><span data-b="ejemplo-a" data-c="categoria">Senior</span><span data-b="ejemplo-a" data-c="ejemplo"> · Ejemplo</span></p>
+            <h3 data-b="ejemplo-a" data-c="nombre">Ejemplo A</h3>
+            <p data-b="ejemplo-a" data-c="especialidad">Fades y estructura</p>
+            <a class="btn btn-linea" data-reservar data-barbero="ejemplo-a" data-wa data-texto="Hola Lords, quiero reservar con el barbero ejemplo A" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar">Agendar</a>
+          </article>
+          <article class="persona" data-b-card="ejemplo-b">
+            <div class="avatar" aria-hidden="true"><span class="iniciales" data-b="ejemplo-b" data-c="iniciales">EB</span></div>
+            <p class="etiqueta"><span data-b="ejemplo-b" data-c="categoria">Barbero</span><span data-b="ejemplo-b" data-c="ejemplo"> · Ejemplo</span></p>
+            <h3 data-b="ejemplo-b" data-c="nombre">Ejemplo B</h3>
+            <p data-b="ejemplo-b" data-c="especialidad">Barba y navaja</p>
+            <a class="btn btn-linea" data-reservar data-barbero="ejemplo-b" data-wa data-texto="Hola Lords, quiero reservar con el barbero ejemplo B" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar">Agendar</a>
+          </article>
+          <article class="persona" data-b-card="ejemplo-c">
+            <div class="avatar" aria-hidden="true"><span class="iniciales" data-b="ejemplo-c" data-c="iniciales">EC</span></div>
+            <p class="etiqueta"><span data-b="ejemplo-c" data-c="categoria">Master</span><span data-b="ejemplo-c" data-c="ejemplo"> · Ejemplo</span></p>
+            <h3 data-b="ejemplo-c" data-c="nombre">Ejemplo C</h3>
+            <p data-b="ejemplo-c" data-c="especialidad">Cortes clásicos</p>
+            <a class="btn btn-linea" data-reservar data-barbero="ejemplo-c" data-wa data-texto="Hola Lords, quiero reservar con el barbero ejemplo C" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar">Agendar</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque" id="galeria" data-tema="oscuro">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <p class="sobre">El trazo</p>
+          <h2>El estilo, en tinta.</h2>
+          <p class="lead">Gráficos de ejemplo. Cuando tengas fotos de trabajos, cámbialas en la carpeta de imágenes.</p>
+        </div>
+        <div class="galeria-fila" tabindex="0" aria-label="Galería de gráficos">
+          <figure>
+            <div class="marco marco-alto"><img src="img/trabajo-01.svg" alt="Gráfico de ejemplo de un corte clásico" width="800" height="1000" loading="lazy" decoding="async"></div>
+            <figcaption>Corte clásico</figcaption>
+          </figure>
+          <figure>
+            <div class="marco marco-alto"><img src="img/trabajo-02.svg" alt="Gráfico de ejemplo de un fade" width="800" height="1000" loading="lazy" decoding="async"></div>
+            <figcaption>Fade</figcaption>
+          </figure>
+          <figure>
+            <div class="marco marco-alto"><img src="img/trabajo-03.svg" alt="Gráfico de ejemplo de una barba" width="800" height="1000" loading="lazy" decoding="async"></div>
+            <figcaption>Barba</figcaption>
+          </figure>
+          <figure>
+            <div class="marco marco-alto"><img src="img/trabajo-04.svg" alt="Gráfico de ejemplo de un detalle de bigote" width="800" height="1000" loading="lazy" decoding="async"></div>
+            <figcaption>Detalle</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque" id="nosotros" data-tema="rojo">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <p class="sobre">Por qué elegirnos</p>
+          <h2>Vuelves porque sabes cómo termina.</h2>
+        </div>
+        <div class="razones">
+          <article>
+            <h3>Llegas y te sientas</h3>
+            <p>La hora es tuya. No vienes a hacer fila.</p>
+          </article>
+          <article>
+            <h3>El precio está dicho</h3>
+            <p>Lo ves en la carta, antes de confirmar.</p>
+          </article>
+          <article>
+            <h3>Una sola cita</h3>
+            <p>Corte, barba o los dos. Sales de una vez.</p>
+          </article>
+        </div>
+        <blockquote class="garantia" data-tema="claro">
+          <p class="sobre">La garantía</p>
+          <p data-garantia>Si el corte no te convence antes de salir, lo ajustamos en la misma cita.</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="bloque" id="ubicacion" data-tema="claro">
+      <div class="contenedor ubicacion-grid">
+        <div>
+          <p class="sobre">Visítanos</p>
+          <h2>Ven a la silla.</h2>
+          <p class="nota-ejemplo">Dirección de ejemplo.</p>
+          <address data-direccion>Carrera 14 #86-21, Chapinero, Bogotá</address>
+          <a class="btn btn-rojo" data-magnetico data-mapa href="https://www.google.com/maps/search/?api=1&amp;query=Carrera+14+86-21+Chapinero+Bogota">Cómo llegar</a>
+        </div>
+        <div>
+          <table class="tabla-horario">
+            <caption class="sr">Horario de la semana</caption>
+            <tbody>
+              <tr><th scope="row">Lunes</th><td data-hora-dia="lunes">10:00 – 20:00</td></tr>
+              <tr><th scope="row">Martes</th><td data-hora-dia="martes">10:00 – 20:00</td></tr>
+              <tr><th scope="row">Miércoles</th><td data-hora-dia="miercoles">10:00 – 20:00</td></tr>
+              <tr><th scope="row">Jueves</th><td data-hora-dia="jueves">10:00 – 20:00</td></tr>
+              <tr><th scope="row">Viernes</th><td data-hora-dia="viernes">10:00 – 21:00</td></tr>
+              <tr><th scope="row">Sábado</th><td data-hora-dia="sabado">09:00 – 19:00</td></tr>
+              <tr><th scope="row">Domingo</th><td data-hora-dia="domingo">Cerrado</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque" id="preguntas" data-tema="oscuro">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <p class="sobre">Dudas</p>
+          <h2>Preguntas frecuentes</h2>
+        </div>
+        <div class="acordeon">
+          <h3>
+            <button type="button" id="faq1-b" aria-expanded="false" aria-controls="faq1">¿Cómo reservo?<span class="mas" aria-hidden="true"></span></button>
+          </h3>
+          <div class="acordeon-panel" id="faq1" role="region" aria-labelledby="faq1-b" hidden>
+            <p>Elige servicio, barbero, día y hora. Al final se abre WhatsApp con el resumen para que el local te confirme.</p>
+          </div>
+          <h3>
+            <button type="button" id="faq2-b" aria-expanded="false" aria-controls="faq2">¿Puedo dejar el barbero a criterio de ustedes?<span class="mas" aria-hidden="true"></span></button>
+          </h3>
+          <div class="acordeon-panel" id="faq2" role="region" aria-labelledby="faq2-b" hidden>
+            <p>Sí. Elige «Cualquiera» y te asignamos la silla que esté libre a esa hora.</p>
+          </div>
+          <h3>
+            <button type="button" id="faq3-b" aria-expanded="false" aria-controls="faq3">¿Con cuánta anticipación llego?<span class="mas" aria-hidden="true"></span></button>
+          </h3>
+          <div class="acordeon-panel" id="faq3" role="region" aria-labelledby="faq3-b" hidden>
+            <p>Con cinco minutos alcanza. Si vas tarde, escríbenos por WhatsApp.</p>
+          </div>
+          <h3>
+            <button type="button" id="faq4-b" aria-expanded="false" aria-controls="faq4">¿Atienden niños?<span class="mas" aria-hidden="true"></span></button>
+          </h3>
+          <div class="acordeon-panel" id="faq4" role="region" aria-labelledby="faq4-b" hidden>
+            <p>Sí. Hay un corte para menores de 12 años.</p>
+          </div>
+          <h3>
+            <button type="button" id="faq5-b" aria-expanded="false" aria-controls="faq5">¿Esta página confirma la cita sola?<span class="mas" aria-hidden="true"></span></button>
+          </h3>
+          <div class="acordeon-panel" id="faq5" role="region" aria-labelledby="faq5-b" hidden>
+            <p>En esta demostración, no. El mensaje de WhatsApp es la solicitud. La cita queda firme cuando te respondemos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bloque cierre" id="cierre" data-tema="oscuro">
+      <div class="contenedor">
+        <svg class="bigote" viewBox="0 0 160 40" aria-hidden="true"><path fill="currentColor" d="M80 22c-4 0-8-1-14-6-7-6-16-8-24-3-5 3-7 7-5 10 2 3 7 5 12 3 7-2 12 0 18 6 4 4 9 6 13 6s9-2 13-6c6-6 11-8 18-6 5 2 10 0 12-3 2-3 0-7-5-10-8-5-17-3-24 3-6 5-10 6-14 6z"/></svg>
+        <h2>Deja la silla lista.</h2>
+        <p class="lead">Toma menos de un minuto. Si ya sabes el corte, mejor.</p>
+        <div class="hero-acciones">
+          <a class="btn btn-rojo" data-magnetico data-reservar data-wa data-texto="Hola Lords, quiero reservar una silla" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20una%20silla">Reservar ahora</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie" data-tema="oscuro" data-fondo>
+    <div class="contenedor pie-grid">
+      <div>
+        <a class="marca" href="#inicio">
+          <img src="img/logo.png" alt="" width="248" height="248">
+          <span class="marca-nombre" translate="no">LORDS</span>
+        </a>
+        <p class="nota-ejemplo">Barbería. Los datos de contacto son de ejemplo.</p>
+      </div>
+      <div>
+        <p data-direccion>Carrera 14 #86-21, Chapinero, Bogotá</p>
+        <p><a data-mapa href="https://www.google.com/maps/search/?api=1&amp;query=Carrera+14+86-21+Chapinero+Bogota">Cómo llegar</a></p>
+      </div>
+      <div>
+        <p><a data-ig href="https://instagram.com/lords.ejemplo"><span data-ig-user>@lords.ejemplo</span></a></p>
+        <p><a data-wa data-texto="Hola Lords, quiero reservar una silla" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20una%20silla">WhatsApp</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sociales-fijos" data-fondo>
+    <a data-ig href="https://instagram.com/lords.ejemplo" aria-label="Abrir Instagram" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 4.6A4.4 4.4 0 1 0 16.4 12 4.4 4.4 0 0 0 12 7.6zm6.1-.9a1 1 0 1 0 1 1 1 1 0 0 0-1-1zM12 9.2A2.8 2.8 0 1 1 9.2 12 2.8 2.8 0 0 1 12 9.2z"/></svg>
+    </a>
+    <a data-wa data-texto="Hola Lords, quiero reservar una silla" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20una%20silla" aria-label="Escribir por WhatsApp" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.15 6.4 2.15 11.83c0 1.74.46 3.44 1.34 4.94L2 22l5.39-1.4a10.1 10.1 0 0 0 4.65 1.12h.01c5.46 0 9.89-4.4 9.89-9.83C21.94 6.4 17.5 2 12.04 2zm5.76 14.18c-.24.68-1.4 1.25-1.94 1.33-.5.07-1.12.1-1.81-.11-.41-.13-.95-.31-1.63-.6-2.87-1.24-4.74-4.12-4.88-4.31-.14-.19-1.15-1.53-1.15-2.92 0-1.39.73-2.07.99-2.35.26-.28.57-.35.76-.35.19 0 .38 0 .55.01.18.01.41-.07.64.49.24.57.81 1.97.88 2.11.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.28-.12.55.16.26.7 1.16 1.51 1.88 1.04.92 1.91 1.21 2.18 1.34.26.14.42.12.58-.07.16-.19.66-.77.84-1.03.18-.26.35-.22.58-.13.24.09 1.49.7 1.74.83.26.13.43.19.49.3.07.1.07.61-.17 1.29z"/></svg>
+    </a>
+  </div>
+
+  <div class="cursor-capa" aria-hidden="true">
+    <div class="cursor-anillo"></div>
+    <div class="cursor-punto"></div>
+  </div>
+
+  <div class="capa" id="modal" hidden>
+    <div class="dialogo" data-tema="claro" role="dialog" aria-modal="true" aria-labelledby="reserva-titulo" aria-describedby="reserva-paso">
+      <div class="dialogo-tope">
+        <p id="reserva-paso">Paso 1 de 6</p>
+        <button class="cerrar" id="reserva-cerrar" type="button" aria-label="Cerrar reserva">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+        <div class="pasos-barra" id="reserva-progreso" role="progressbar" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1" aria-label="Progreso de la reserva">
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+      <div class="dialogo-cuerpo" id="reserva-cuerpo"></div>
+      <p class="mensaje-error" id="reserva-error" hidden></p>
+      <div class="dialogo-pie">
+        <button type="button" class="btn btn-linea" id="reserva-atras">Atrás</button>
+        <button type="button" class="btn btn-rojo" id="reserva-seguir" data-magnetico>Seguir</button>
+      </div>
+      <p class="sr" id="reserva-vivo" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <script type="module" src="js/sitio.js"></script>
+</body>
+</html>
