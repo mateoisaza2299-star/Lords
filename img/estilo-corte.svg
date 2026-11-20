@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Gráfico de ejemplo de un cartel de corte">
+  <rect width="800" height="1000" fill="#E9DFD4"/>
+  <circle cx="400" cy="430" r="220" fill="#140E0C"/>
+  <circle cx="400" cy="430" r="150" fill="#F4EFE8"/>
+  <path fill="#8E1218" d="M250 430h300v28H250z"/>
+  <path fill="#1A120F" d="M400 250c70 40 110 110 110 180 0 20-4 40-12 58-40-70-90-110-150-120 48-48 48-90 52-118z"/>
+  <path fill="#1A120F" d="M168 820h464v18H168z"/>
+  <path fill="#8E1218" d="M168 850h180v10H168z"/>
+</svg>

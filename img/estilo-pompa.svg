@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Gráfico de ejemplo de un pompadour">
+  <rect width="800" height="1000" fill="#F4EFE8"/>
+  <circle cx="620" cy="180" r="90" fill="#8E1218"/>
+  <path fill="#1A120F" d="M150 760c20-220 80-360 210-470 90-76 190-90 300-40 70 32 110 96 96 168-18-48-78-86-150-78-120 14-190 110-210 250-8 52-6 110 8 170-70-40-150-20-210 20-40 26-50 10-44-20z"/>
+  <path fill="#1A120F" d="M250 690c40-90 120-150 230-150 20 48-10 90-70 120-70 34-130 30-160 30z"/>
+  <path fill="#8E1218" d="M120 860h360v16H120z"/>
+</svg>

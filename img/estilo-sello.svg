@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000" role="img" aria-label="Gráfico de ejemplo del sello">
+  <rect width="800" height="1000" fill="#5C1014"/>
+  <circle cx="458" cy="560" r="268" fill="#8E1218"/>
+  <circle cx="360" cy="470" r="246" fill="#F4EFE8"/>
+  <circle cx="360" cy="470" r="176" fill="none" stroke="#1A120F" stroke-width="14"/>
+  <path fill="#8E1218" d="M648 150l10 32 32 10-32 10-10 32-10-32-32-10 32-10z"/>
+  <path fill="#F6B7B7" d="M150 820l7 20 20 7-20 7-7 20-7-20-20-7 20-7z"/>
+</svg>
