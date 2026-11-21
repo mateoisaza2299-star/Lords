@@ -72,14 +72,30 @@ function aplicarConfig(config) {
     });
   });
   config.confianza.forEach((item, indice) => {
-    const el = document.querySelector(`[data-confianza="${indice}"]`);
-    if (!el) return;
-    el.dataset.hasta = String(item.valor);
-    el.dataset.sufijo = item.sufijo;
-    el.textContent = `${item.valor}${item.sufijo}`;
-    const etiqueta = el.parentElement?.querySelector("[data-confianza-etiqueta]");
-    if (etiqueta) etiqueta.textContent = item.etiqueta;
+    document.querySelectorAll(`[data-confianza="${indice}"]`).forEach((el) => {
+      el.dataset.hasta = String(item.valor);
+      el.dataset.sufijo = item.sufijo;
+      el.textContent = `${item.valor}${item.sufijo}`;
+      const etiqueta = el.parentElement?.querySelector("[data-confianza-etiqueta]");
+      if (etiqueta) etiqueta.textContent = item.etiqueta;
+    });
   });
+  const select = document.getElementById("hero-barbero");
+  if (select) {
+    const valor = select.value || "cualquiera";
+    select.replaceChildren();
+    const cualquiera = document.createElement("option");
+    cualquiera.value = "cualquiera";
+    cualquiera.textContent = "Cualquiera";
+    select.append(cualquiera);
+    config.barberos.forEach((barbero) => {
+      const opcion = document.createElement("option");
+      opcion.value = barbero.id;
+      opcion.textContent = barbero.nombre;
+      select.append(opcion);
+    });
+    if ([...select.options].some((opcion) => opcion.value === valor)) select.value = valor;
+  }
   const numero = String(config.whatsapp).replace(/\D/g, "");
   document.querySelectorAll("[data-wa]").forEach((el) => {
     const texto = el.dataset.texto || `Hola ${config.nombre}, quiero reservar una silla`;
@@ -157,10 +173,38 @@ function iniciarAcordeon() {
   });
 }
 
+function iniciarHero() {
+  const chips = [...document.querySelectorAll("[data-servicio-chip]")];
+  const reservar = document.getElementById("hero-reservar");
+  const continuar = document.getElementById("hero-continuar");
+  const barbero = document.getElementById("hero-barbero");
+  if (!chips.length || !continuar) return;
+  const marcar = (id) => {
+    chips.forEach((chip) => {
+      const activo = chip.dataset.servicioChip === id;
+      chip.classList.toggle("elegido", activo);
+      chip.setAttribute("aria-pressed", activo ? "true" : "false");
+    });
+    if (reservar) reservar.dataset.servicio = id;
+    continuar.dataset.servicio = id;
+  };
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => marcar(chip.dataset.servicioChip));
+  });
+  const sincronizarBarbero = () => {
+    if (!barbero) return;
+    continuar.dataset.barbero = barbero.value;
+    if (reservar) reservar.dataset.barbero = barbero.value;
+  };
+  barbero?.addEventListener("change", sincronizarBarbero);
+  sincronizarBarbero();
+}
+
 const store = crearStoreDemo();
 
 aplicarConfig(CONFIG);
 marcarImagenes();
+iniciarHero();
 iniciarMenu();
 iniciarAcordeon();
 iniciarAnimaciones();

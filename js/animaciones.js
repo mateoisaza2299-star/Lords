@@ -16,7 +16,7 @@ export function movimientoReducido() {
 }
 
 function punteroFino() {
-  return mediaFina().matches;
+  return mediaFina().matches && window.matchMedia("(hover: hover)").matches;
 }
 
 let cursorActivo = false;
@@ -112,11 +112,11 @@ function iniciarParallax() {
     frame = 0;
     if (!parallaxNodo) return;
     if (movimientoReducido()) {
-      parallaxNodo.style.transform = "";
+      parallaxNodo.style.setProperty("--desplazamiento", "0px");
       return;
     }
-    const y = Math.min(window.scrollY * 0.16, 64);
-    parallaxNodo.style.transform = `translate3d(0, ${y}px, 0)`;
+    const y = Math.min(window.scrollY * 0.08, 36);
+    parallaxNodo.style.setProperty("--desplazamiento", `${y}px`);
   };
   window.addEventListener("scroll", () => {
     if (!frame) frame = requestAnimationFrame(pintar);
@@ -191,12 +191,25 @@ function iniciarCursor() {
   let ax = 0;
   let ay = 0;
   let corriendo = false;
-  window.addEventListener("mousemove", (evento) => {
+  let visto = false;
+  capa.classList.add("espera");
+  window.addEventListener("pointermove", (evento) => {
+    const fino = evento.pointerType === "mouse" && punteroFino() && !movimientoReducido();
+    if (!fino) {
+      document.documentElement.classList.remove("cursor-fino");
+      capa.classList.add("espera");
+      return;
+    }
     x = evento.clientX;
     y = evento.clientY;
-    const visible = punteroFino() && !movimientoReducido();
-    document.documentElement.classList.toggle("cursor-fino", visible);
-    if (!visible) return;
+    if (!visto) {
+      visto = true;
+      ax = x;
+      ay = y;
+      anillo.style.transform = `translate(${x}px, ${y}px)`;
+    }
+    document.documentElement.classList.add("cursor-fino");
+    capa.classList.remove("espera");
     punto.style.transform = `translate(${x}px, ${y}px)`;
     capa.classList.toggle("oculto", Boolean(evento.target.closest("input, textarea, select")));
     if (!corriendo) {
@@ -207,6 +220,8 @@ function iniciarCursor() {
   function seguir() {
     if (!punteroFino() || movimientoReducido()) {
       corriendo = false;
+      document.documentElement.classList.remove("cursor-fino");
+      capa.classList.add("espera");
       return;
     }
     ax += (x - ax) * 0.2;
@@ -219,10 +234,13 @@ function iniciarCursor() {
 function aplicarPreferencias() {
   document.documentElement.classList.toggle("sin-movimiento", movimientoReducido());
   const cursorOk = punteroFino() && !movimientoReducido();
-  document.documentElement.classList.toggle("cursor-fino", cursorOk);
-  if (!cursorOk && parallaxNodo && movimientoReducido()) parallaxNodo.style.transform = "";
+  if (!cursorOk) {
+    document.documentElement.classList.remove("cursor-fino");
+    document.querySelector(".cursor-capa")?.classList.add("espera");
+  }
+  if (parallaxNodo && movimientoReducido()) parallaxNodo.style.setProperty("--desplazamiento", "0px");
   if (cursorOk) iniciarCursor();
-  if (!movimientoReducido() && punteroFino()) iniciarMagnetico();
+  if (cursorOk) iniciarMagnetico();
 }
 
 export function iniciarAnimaciones() {

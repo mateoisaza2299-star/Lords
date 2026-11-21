@@ -15,6 +15,7 @@
   <link rel="apple-touch-icon" href="img/logo.png">
   <link rel="preload" href="fonts/syne-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="img/local.jpg" as="image">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/styles.css">
   <script>
@@ -53,39 +54,67 @@
 
   <main id="contenido" data-fondo>
     <section class="hero" id="inicio" data-tema="oscuro">
-      <img class="marca-agua" src="img/marca.svg" alt="" aria-hidden="true" width="900" height="180">
+      <div class="hero-fondo" aria-hidden="true">
+        <img class="hero-foto" data-parallax src="img/local.jpg" alt="" width="1600" height="738" fetchpriority="high">
+        <div class="hero-velo"></div>
+      </div>
       <div class="contenedor hero-grid">
-        <div>
+        <div class="hero-copia">
           <p class="prueba">
             <span>Hora exacta</span>
             <span>Una silla</span>
             <span>Sin sala de espera</span>
           </p>
-          <h1>Hoy sales <em>listo</em> para lo que sigue.</h1>
-          <p class="lead">Reserva la silla, llega a tu hora y sal con el corte hecho. Sin fila y sin adivinar el precio.</p>
+          <h1>
+            <span class="palabra" style="--i:0">Hoy</span>
+            <span class="palabra" style="--i:1">sales</span>
+            <span class="palabra acento" style="--i:2">listo</span>
+            <span class="palabra" style="--i:3">para</span>
+            <span class="palabra" style="--i:4">lo</span>
+            <span class="palabra" style="--i:5">que</span>
+            <span class="palabra" style="--i:6">sigue.</span>
+          </h1>
+          <p class="lead hero-lead">Reserva la silla, llega a tu hora y sal con el corte hecho. Sin fila y sin adivinar el precio.</p>
           <div class="hero-acciones">
-            <a class="btn btn-rojo" data-magnetico data-reservar data-wa data-texto="Hola Lords, quiero reservar una silla" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20una%20silla">Reservar ahora</a>
+            <a id="hero-reservar" class="btn btn-rojo" data-magnetico data-reservar data-servicio="corte" data-barbero="cualquiera" data-wa data-texto="Hola Lords, quiero reservar una silla" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20una%20silla">Reservar ahora</a>
             <a class="btn btn-linea" href="#servicios">Ver servicios</a>
           </div>
+          <div class="hero-social">
+            <p class="hero-estrellas">
+              <svg class="estrellas" viewBox="0 0 120 20" width="108" height="18" aria-hidden="true"><g fill="currentColor"><path d="M10 1.4 12.1 7h5.8l-4.7 3.4 1.8 5.6L10 12.6 5 16l1.8-5.6L2.1 7h5.8z"/><path d="M34 1.4 36.1 7h5.8l-4.7 3.4 1.8 5.6L34 12.6 29 16l1.8-5.6L26.1 7h5.8z"/><path d="M58 1.4 60.1 7h5.8l-4.7 3.4 1.8 5.6L58 12.6 53 16l1.8-5.6L50.1 7h5.8z"/><path d="M82 1.4 84.1 7h5.8l-4.7 3.4 1.8 5.6L82 12.6 77 16l1.8-5.6L74.1 7h5.8z"/><path d="M106 1.4 108.1 7h5.8l-4.7 3.4 1.8 5.6L106 12.6 101 16l1.8-5.6L98.1 7h5.8z"/></g></svg>
+              <span class="nota-ejemplo">Valoración de ejemplo</span>
+            </p>
+            <ul class="hero-datos">
+              <li><strong data-contador data-hasta="45" data-sufijo=" min" data-confianza="0">45 min</strong><span data-confianza-etiqueta>Duración de un corte</span></li>
+              <li><strong data-contador data-hasta="6" data-sufijo=" días" data-confianza="1">6 días</strong><span data-confianza-etiqueta>Agenda de la semana</span></li>
+              <li><strong data-contador data-hasta="1" data-sufijo=" silla" data-confianza="2">1 silla</strong><span data-confianza-etiqueta>Por cada reserva</span></li>
+            </ul>
+            <p class="nota-ejemplo">Cifras de ejemplo.</p>
+          </div>
         </div>
-        <div>
-          <div class="sello" data-parallax>
-            <svg class="chispa" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0l1.6 8.4L22 12l-8.4 1.6L12 24l-1.6-10.4L2 12l8.4-1.6z"/></svg>
-            <div class="marco marco-sello">
-              <img src="img/logo.png" alt="Logo de Lords: caballero con tupé, bigote y arete" width="248" height="248" fetchpriority="high">
-            </div>
+        <div class="reserva-rapida" data-tema="claro">
+          <p class="sobre">Reserva rápida</p>
+          <p class="reserva-etiqueta" id="hero-servicios-label">Servicio</p>
+          <div class="chips" role="group" aria-labelledby="hero-servicios-label">
+            <button class="chip elegido" type="button" data-servicio-chip="corte" aria-pressed="true"><span data-s="corte" data-c="nombre">Corte</span></button>
+            <button class="chip" type="button" data-servicio-chip="barba" aria-pressed="false"><span data-s="barba" data-c="nombre">Barba</span></button>
+            <button class="chip" type="button" data-servicio-chip="combo" aria-pressed="false"><span data-s="combo" data-c="nombre">Corte y barba</span></button>
+            <button class="chip" type="button" data-servicio-chip="nino" aria-pressed="false"><span data-s="nino" data-c="nombre">Corte niño</span></button>
+            <button class="chip" type="button" data-servicio-chip="cejas" aria-pressed="false"><span data-s="cejas" data-c="nombre">Cejas</span></button>
           </div>
-          <div class="boleta" data-tema="claro">
-            <p class="sobre">Tu silla</p>
-            <strong>Tres pasos y listo</strong>
-            <ol>
-              <li><span class="n">1</span><span>Elige el servicio</span></li>
-              <li><span class="n">2</span><span>Elige quién te corta</span></li>
-              <li><span class="n">3</span><span>Confirma por WhatsApp</span></li>
-            </ol>
+          <div class="hero-barbero">
+            <label for="hero-barbero">Barbero</label>
+            <select id="hero-barbero">
+              <option value="cualquiera">Cualquiera</option>
+              <option value="ejemplo-a">Ejemplo A</option>
+              <option value="ejemplo-b">Ejemplo B</option>
+              <option value="ejemplo-c">Ejemplo C</option>
+            </select>
           </div>
+          <a id="hero-continuar" class="btn btn-rojo" data-magnetico data-reservar data-servicio="corte" data-barbero="cualquiera" data-wa data-texto="Hola Lords, quiero reservar una silla" href="https://wa.me/573001112233?text=Hola%20Lords%2C%20quiero%20reservar%20una%20silla">Continuar</a>
         </div>
       </div>
+      <a class="hero-scroll" href="#confianza" aria-label="Bajar a la siguiente sección"><span></span></a>
     </section>
 
     <section class="franja" id="confianza" data-tema="claro" aria-labelledby="confianza-titulo">
@@ -418,7 +447,7 @@
     </a>
   </div>
 
-  <div class="cursor-capa" aria-hidden="true">
+  <div class="cursor-capa espera" aria-hidden="true">
     <div class="cursor-anillo"></div>
     <div class="cursor-punto"></div>
   </div>
