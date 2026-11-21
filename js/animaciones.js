@@ -158,6 +158,40 @@ function iniciarContadores() {
   nodos.forEach((nodo) => observar.observe(nodo));
 }
 
+function iniciarLuz() {
+  if (!punteroFino() || movimientoReducido()) return;
+  document.querySelectorAll(".btn-linea, .reserva-rapida, .entrada, .persona").forEach((el) => {
+    if (el.dataset.luzListo === "1") return;
+    el.dataset.luzListo = "1";
+    let frame = 0;
+    let mx = 22;
+    let my = 0;
+    const pintar = () => {
+      frame = 0;
+      el.style.setProperty("--mx", `${mx}%`);
+      el.style.setProperty("--my", `${my}%`);
+    };
+    el.addEventListener("pointermove", (evento) => {
+      if (evento.pointerType !== "mouse" || movimientoReducido() || !punteroFino()) return;
+      const caja = el.getBoundingClientRect();
+      mx = caja.width ? ((evento.clientX - caja.left) / caja.width) * 100 : 50;
+      my = caja.height ? ((evento.clientY - caja.top) / caja.height) * 100 : 50;
+      if (!frame) frame = requestAnimationFrame(pintar);
+    });
+    el.addEventListener("pointerleave", () => {
+      el.style.removeProperty("--mx");
+      el.style.removeProperty("--my");
+    });
+  });
+}
+
+function apagarLuz() {
+  document.querySelectorAll(".btn-linea, .reserva-rapida, .entrada, .persona").forEach((el) => {
+    el.style.removeProperty("--mx");
+    el.style.removeProperty("--my");
+  });
+}
+
 function iniciarMagnetico() {
   document.querySelectorAll("[data-magnetico]").forEach((el) => {
     if (el.dataset.magnetoListo === "1") return;
@@ -239,8 +273,11 @@ function aplicarPreferencias() {
     document.querySelector(".cursor-capa")?.classList.add("espera");
   }
   if (parallaxNodo && movimientoReducido()) parallaxNodo.style.setProperty("--desplazamiento", "0px");
-  if (cursorOk) iniciarCursor();
-  if (cursorOk) iniciarMagnetico();
+  if (cursorOk) {
+    iniciarCursor();
+    iniciarMagnetico();
+    iniciarLuz();
+  } else apagarLuz();
 }
 
 export function iniciarAnimaciones() {
@@ -253,6 +290,7 @@ export function iniciarAnimaciones() {
   if (punteroFino() && !movimientoReducido()) {
     iniciarCursor();
     iniciarMagnetico();
+    iniciarLuz();
   }
   mediaReducida().addEventListener("change", aplicarPreferencias);
   mediaFina().addEventListener("change", aplicarPreferencias);

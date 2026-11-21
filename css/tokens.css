@@ -89,6 +89,14 @@
   --curva: cubic-bezier(0.22, 1, 0.36, 1);
 
   --compensa: 0px;
+
+  --glass-bg: color-mix(in srgb, var(--tinta) 70%, transparent);
+  --glass-border: color-mix(in srgb, var(--crema) 42%, transparent);
+  --glass-blur: 14px;
+  --glow-color: color-mix(in srgb, var(--color-acento) 55%, transparent);
+  --glow-size: 18px;
+  --shine: color-mix(in srgb, var(--blanco) 34%, transparent);
+
   color-scheme: dark;
 }
 
@@ -107,6 +115,10 @@
   --color-enlace: var(--rojo-hover);
   --color-skeleton: #e4dcd0;
   --color-skeleton-brillo: #f7f3ed;
+  --glass-bg: color-mix(in srgb, var(--papel-2) 72%, transparent);
+  --glass-border: color-mix(in srgb, var(--tinta) 18%, transparent);
+  --glow-color: color-mix(in srgb, var(--color-acento) 42%, transparent);
+  --shine: color-mix(in srgb, var(--blanco) 62%, transparent);
   color-scheme: light;
 }
 
